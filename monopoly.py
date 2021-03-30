@@ -10,7 +10,7 @@ def roll():
 # Display progress bar
 def progress(complete, total):
     bar = math.floor((complete / total) * 25)
-    sys.stdout.write('\r[' + ('#' * bar) + ('-' * (25 - bar)) + '] ' + str(round((complete / total) * 100)) + '%' + ' complete')
+    sys.stdout.write('\r[' + ('#' * bar) + ('-' * (25 - bar)) + '] ' + str(math.floor((complete / total) * 100)) + '%' + ' complete')
 
 # Simulate a player
 def simulate():
@@ -71,7 +71,7 @@ totalStops = [0] * 40
 # Store round count
 totalRounds = 0
 
-iterations = int(sys.argv[1]) if int(sys.argv[1]) else 1000
+iterations = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
 
 for i in range(iterations):
     results = simulate()
